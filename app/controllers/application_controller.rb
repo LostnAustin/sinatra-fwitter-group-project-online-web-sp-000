@@ -12,7 +12,10 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :'/index'
   end
+<<<<<<< HEAD
   
+=======
+>>>>>>> c4d3a9933c491a3a79a90f158bdd067fe674edf9
 
   def logged_in
     !!current_user

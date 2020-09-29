@@ -1,9 +1,15 @@
 class TweetsController < ApplicationController
 
   get '/tweets' do
-    if logged_in   
+<<<<<<< HEAD
+    if logged_in
       @tweets = Tweet.all
       erb :'/tweets/tweets'
+=======
+    if logged_in
+      @tweets = Tweet.all
+      erb :'/tweets/index'
+>>>>>>> c4d3a9933c491a3a79a90f158bdd067fe674edf9
     else
       redirect '/login'
     end
@@ -11,9 +17,10 @@ class TweetsController < ApplicationController
 
 
   get '/tweets/new' do
+<<<<<<< HEAD
     if logged_in
       erb :'tweets/new'
-    else 
+    else
       redirect '/login'
     end
   end
@@ -44,7 +51,7 @@ class TweetsController < ApplicationController
     end
   end
 
-  
+
   get '/tweets/:id/edit' do
     if logged_in
       @tweet = Tweet.find_by_id(params[:id])
@@ -93,6 +100,27 @@ class TweetsController < ApplicationController
   end
 
 
+=======
+
+    erb :'/tweets/new'
+  end
+
+  post '/tweets' do
+    @tweet = Tweet.create(params[:content])
+    @tweet.user = User.create(user[:username], user[:email], user[:password])
+
+  end
+
+  # get '/signup' do
+  #   @user = User.create(user[:username], user[:email], user[:password])
+  #   @session = session[:name] = @user.name
+  #     if session[:name] == ( user[:username] && user[:password] )
+  #       redirect '/login'
+  #     else "Incorrect username or password!"
+  #     end
+  #   erb :'/tweets/index'
+  # end
+>>>>>>> c4d3a9933c491a3a79a90f158bdd067fe674edf9
 
 
 end
